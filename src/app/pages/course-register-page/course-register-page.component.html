@@ -1,0 +1,236 @@
+
+<div class="page-title-area item-bg1">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a href="/">Startseite</a></li>
+                <li><a href="/courses">Angebote</a></li>
+                <li>{{course.categoryName}}</li>
+            </ul>
+            <h2>{{course.name}}</h2>
+        </div>
+    </div>
+</div>
+
+<div
+    class="courses-details-area pt-100 pb-70"
+>
+    <div class="container">
+        <div class="courses-details-header">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="courses-title">
+                        <h2>{{course.name}}</h2>
+                       
+                    </div>
+                    <div class="courses-meta">
+                        <ul>
+                            <li >
+                                <i class='bx bx-map'></i>
+                                <span>{{selectedCourse.campus}}</span>
+                                <a >{{selectedCourse.periodStartTime | date:'longDate':'':defaultLang$}}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-4">
+                    <div class="courses-price">
+                        <div class="price">$250</div>
+                        <a routerLink="/single-courses" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Anmeldung</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8" *ngIf="!isAuth$">
+            <app-login-page *ngIf="signInOrSignUp" (signInOrSignUp)="setRegister($event)"></app-login-page>
+            <app-register-page *ngIf="!signInOrSignUp" (signInOrSignUp)="setRegister($event)"></app-register-page>
+            
+        </div>
+            <div class="col-lg-8" *ngIf="isAuth$">
+                <div class="courses-details-image text-start">
+                    Hallo {{this.user$.firstName}} {{this.user$.lastName}}
+                    <!-- <img [src]="imagePath$+course.imagePth" alt="{{course.name}}"> -->
+                </div>
+
+
+                <div class="courses-details-desc">
+                    <div class="register-area">
+                        <div class="register-content">
+                          
+                                <p>Bitte geben Sie für die Anmeldung folgende Informationen an</p>
+                                <div class="d-table">
+                                    <div class="d-table-cell">
+                                        <div class="register-form">
+                                            <form  [formGroup]="studentForm">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-3">
+                                                        <input type="checkbox" (change)="setIsChild($event)" /> Ich melde mein Kind an
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="name" id="name" [placeholder]="namePlaceHolder" (change)="message=''" class="form-control">
+                                                            <div *ngIf="studentForm.get('name').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('name').errors?.required">
+                                                                    Bitte geben Sie Ihren vornamen ein
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="lastName" id="name" [placeholder]="lastNamePlaceHolder" (change)="message=''" class="form-control">
+                                                            <div *ngIf="studentForm.get('lastName').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('lastName').errors?.required">
+                                                                    Bitte geben Sie Ihren Nachnamen ein
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input formControlName="birthDate" id="name" placeholder="Geburtsdatum " class="form-control" type="date">
+                                                                <div *ngIf="studentForm.get('birthDate').touched">
+                                                                    <div class="text-danger" *ngIf="studentForm.get('birthDate').errors?.required">
+                                                                        Bitte geben Sie Ihren Geburtsdatum ein
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <select class="form-control form-select" placeholder="Geschlecht" formControlName="gender">
+                                                                <option value="">Bitte wählen</option>
+                                                                <option value="1">Weiblich</option>
+                                                                <option value="0">Männlich</option>
+                                                            </select>
+                                                            
+                                                            <div *ngIf="studentForm.get('gender').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('gender').errors?.required">
+                                                                    Bitte geben Sie Ihren Nachnamen ein
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <input formControlName="address" id="address" placeholder="Strasse" class="form-control">
+                                                            <div *ngIf="studentForm.get('address').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('address').errors?.required">
+                                                                    Strasse Adresse eingeben
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="city" id="city" placeholder="PLZ" class="form-control">
+                                                            <div *ngIf="studentForm.get('city').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('city').errors?.required">
+                                                                    PLZ eingeben
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="state" id="state" placeholder="Ort" class="form-control">
+                                                            <div *ngIf="studentForm.get('state').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('state').errors?.required">
+                                                                    Ort eingeben
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="email" id="email" placeholder="E-mail" class="form-control">
+                                                            <div *ngIf="studentForm.get('email').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('email').errors?.required">
+                                                                    E-Mail Adresse eingeben
+                                                                  </div>
+                                                                  <div class="text-danger" *ngIf="studentForm.get('email').errors?.email">
+                                                                    Geben Sie eine gültige E-Mail Adresse ein
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input formControlName="gsm" id="gsm" placeholder="Handynummer" class="form-control">
+                                                            <div *ngIf="studentForm.get('gsm').touched">
+                                                                <div class="text-danger" *ngIf="studentForm.get('gsm').errors?.required">
+                                                                    Handynummer  eingeben
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="tagus-form-group">
+                                                            <label class="d-block mb-12 fw-semibold gray-color" for="confirmation">Überprüfung<span>*</span></label>
+                                                            <input type="checkbox" formControlName="confirmation" />
+                                                                
+                                                                Ich bestätige, dass die oben genannten Informationen zu mir gehören
+                                                                <div *ngIf="studentForm.get('confirmation').touched">
+                                                                    <div class="text-danger" *ngIf="studentForm.get('confirmation').errors?.required">
+                                                                        Sie müssen Ihre Zustimmung geben
+                                                                      </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button *ngIf="!message" type="submit" (click)="saveData()">Anmeldung</button>
+                                                <button *ngIf="message">{{message}}</button>
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    </div>
+                  
+                 </div>
+              
+            </div>
+            <div class="col-lg-4">
+                <div class="courses-sidebar-information" *ngFor="let item of course.openedCourses">
+                    <div class="course-meta">
+                        <ul>
+                            <li><div>{{item.campus}}</div></li>
+                        </ul>
+                        
+                    </div>
+                    <ul>
+                        
+                        <li>
+                            <span><i class='bx bx-time'></i> Datum der Vorabregistrierung:</span>
+                             {{item.preRegistrationStartTime |date: 'longDate':'':defaultLang$}}<br />
+                             {{item.preRegistrationEndTime |date: 'longDate':'':defaultLang$}}
+                        </li>
+                        <li>
+                            <span><i class='bx bx-calendar'></i> Begriff:</span>
+                             {{item.periodStartTime |date: 'longDate':'':defaultLang$}}<br />
+                             {{item.periodEndTime |date: 'longDate':'':defaultLang$}}
+                        </li>
+                        <li>
+                            <span><i class='bx bx-group'></i> Quote:</span>
+                            {{item.quota}}                           
+                        </li>
+                        <li>
+                            <span><i class='bx bx-user'></i> Trainer:</span>
+                            {{item.teacherFullName}}                           
+                        </li>
+                        
+                        <li *ngIf="selectedCourse.code != item.code">
+                            <a class="full-button" [routerLink]="['/register-course/',course.code,item.code,course.name | seoslugify]" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Anmeldung</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

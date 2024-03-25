@@ -1,0 +1,57 @@
+<div
+    class="register-area"
+>
+            <div class="register-content">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="register-form">
+                        
+                            <h3>Eröffne jetzt dein Mufid Account</h3>
+                            <p>Sie haben sich bereits angemeldet? <a (click)="setRegister()">Anmelden</a></p>
+                            <form [formGroup]="registerFormGroup">
+                                <div class="form-group">
+                                    <input formControlName="firstName" id="firstName" placeholder="Ihr Name" class="form-control">
+                                    <div *ngIf="registerFormGroup.get('firstName').touched">
+                                        <div class="text-danger" *ngIf="registerFormGroup.get('firstName').errors?.required">
+                                            Bitte geben Sie Ihren Namen ein
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="lastName" id="lastName" placeholder="Ihr Nachname" class="form-control">
+                                    <div *ngIf="registerFormGroup.get('lastName').touched">
+                                        <div class="text-danger" *ngIf="registerFormGroup.get('lastName').errors?.required">
+                                            Bitte geben Sie Ihren Nachnamen ein
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" formControlName="userName" id="email" placeholder="Ihre E-Mail Adresse" class="form-control">
+                                    <div *ngIf="registerFormGroup.get('userName').touched">
+                                        <div class="text-danger" *ngIf="registerFormGroup.get('userName').errors?.required">
+                                            E-Mail Adresse eingeben
+                                          </div>
+                                          <div class="text-danger" *ngIf="registerFormGroup.get('userName').errors?.email">
+                                            Geben Sie eine gültige E-Mail Adresse ein
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" formControlName="password" id="password" placeholder="Ein Passwort erstellen" class="form-control">
+                                    <div *ngIf="registerFormGroup.get('password').touched">
+                                        <div class="text-danger" *ngIf="registerFormGroup.get('password').errors?.required">
+                                            Bitte setzen Sie ein Passwort
+                                          </div>
+                                          <div class="text-danger" *ngIf="registerFormGroup.get('password').errors?.pattern">
+                                            Ihr Passwort muss mindestens 6 Zeichen, Groß- und Kleinbuchstaben und Zahlen enthalten
+                                          </div>
+                                    </div>
+                                </div>
+                                <button type="submit" (click)="register()">Anmeldung</button>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>

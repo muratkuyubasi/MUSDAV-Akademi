@@ -1,0 +1,29 @@
+<div
+    class="login-area"
+>
+            <div class="login-content">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="login-form">
+                           
+                            <h3>Willkommen zurück</h3>
+                            <p>Neu bei Mufid? <a (click)="setRegister()">Anmeldung</a></p>
+                            <form  [formGroup]="loginFormGroup" (submit)="onLoginSubmit()">
+                                <div class="form-group">
+                                    <input type="email" formControlName="userName" placeholder="Ihre E-Mail Adresse" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" formControlName="password" placeholder="Ihr Passwort" class="form-control">
+                                </div>
+                                <button type="submit">Anmelden</button>
+                                <!-- <div class="forgot-password">
+                                    <a routerLink="/">Forgot Password?</a>
+                                </div> -->
+                             
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+</div>

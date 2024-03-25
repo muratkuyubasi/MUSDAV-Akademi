@@ -1,0 +1,88 @@
+<section
+    class="courses-area pt-100 pb-70"
+>
+    <div class="container">
+
+        <ul class="nav-tabset">
+            <!-- <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab0'}">
+                <span class="active" (click)="switchTab($event, 'tab0',0)">All (06)</span>
+            </li> -->
+            <li class="nav-tab" *ngFor="let item of categoryFields" [ngClass]="{'active': currentTab === 'tab'+item.id}" >
+                <span (click)="switchTab($event, 'tab'+item.id ,item.id)">{{item.fieldName}}
+                     {{item.courses.length>0 ? '('+item.courses.length+')':'' }}
+                    </span>
+            </li>
+            <!-- <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab3'}">
+                <span (click)="switchTab($event, 'tab3')">Design (05)</span>
+            </li>
+            <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab4'}">
+                <span (click)="switchTab($event, 'tab4')">Development (04)</span>
+            </li>
+            <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab5'}">
+                <span (click)="switchTab($event, 'tab5')">Language (02)</span>
+            </li>
+            <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab6'}">
+                <span (click)="switchTab($event, 'tab6')">Management (03)</span>
+            </li>
+            <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab7'}">
+                <span (click)="switchTab($event, 'tab7')">Photography (04)</span>
+            </li> -->
+        </ul>
+        <div class="tabs-container">
+            <div *ngFor="let field of categoryFields">
+                <div  class="pane" id="tab{{field.id}}" *ngIf="currentTab === 'tab'+field.id">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" *ngFor="let item of field.courses">
+                            <div class="single-courses-box mb-30" [routerLink]="['/course',item.code,item.name | seoslugify]">
+                                <div class="courses-image">
+                                    <a [routerLink]="['/course',item.code,item.name | seoslugify]" class="d-block">
+                                        <img [src]="imagePath+item.imagePth" [alt]="item.name"></a>
+                                    <div class="courses-tag">
+                                        <a [routerLink]="['/course',item.code,item.name | seoslugify]"  class="d-block">{{item.categoryName}}</a>
+                                    </div>
+                                </div>
+                                <div class="courses-content">
+                                    <div class="course-author d-flex align-items-center">
+                                        <!-- <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image"> -->
+                                        <span>{{item.openedCourses[0]?.teacherFullName}}</span>
+                                        
+                                    </div>
+                                    <h3>
+                                        <a [routerLink]="['/course',item.code,item.name | seoslugify]"  class="d-inline-block" [innerHTML]="item.name | truncate:500:false: ' Weiterlesen ...' ">
+                                            
+                                        </a>
+                                    </h3>
+                                    <p [innerHTML]="item.description | truncate:500:false: ' Weiterlesen ...' "></p>
+                                    <!-- <div class="courses-rating">
+                                        <div class="review-stars-rated">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                        </div>
+                                        <div class="rating-total">
+                                            5.0 (1 rating)
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="courses-box-footer">
+                                    <ul>
+                                        <li class="students-number" *ngFor="let oc of item.openedCourses">
+                                            <i class='bx bx-map'></i> {{oc.campus}}<br />
+                                            <i class='bx bx-people'></i>Quote {{oc.quota}}
+                                        </li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,60 @@
+<footer class="footer-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-footer-widget mb-30">
+                   <img src="/assets/img/logo.png" />
+                   <p style="font-size: 1.2rem;">{{siteSettings?.siteMessage}}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-footer-widget mb-30">
+                    <h3>Angebote</h3>
+                    <ul class="useful-link">
+                        <li><a  (click)="searchCourses('Erwachsene')">Erwachsene</a></li>
+                        <li><a  (click)="searchCourses('Kinder')">Kinder</a></li>
+                        <li><a  (click)="searchCourses('Sprachkurse')">Sprachkurse</a></li>
+                        <li><a  (click)="searchCourses('Workshops')">Workshops</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-footer-widget mb-30">
+                    <h3>Kontakt</h3>
+                    <ul class="contact-us-link">
+                        <li  *ngFor="let item of siteSettings?.siteAddress">
+                            <i class='bx bx-map'></i>
+                            <a href="#" target="_blank">{{item.name}}</a><br />
+                            <span>{{item.address}}</span>
+                        </li>
+                        <li>
+                            <i class='bx bx-phone-call'></i>
+                            <a href="tel:{{siteSettings?.sitePhone}}">{{siteSettings?.sitePhone}}</a>
+                        </li>
+                        <li>
+                            <i class='bx bx-envelope'></i>
+                            <a href="mailto:{{siteSettings?.siteEmail}}">{{siteSettings?.siteEmail}}</a>
+                        </li>
+                    </ul>
+                    <ul class="social-link">
+                        <li><a href="{{siteSettings?.facebook}}" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="{{siteSettings?.twitter}}" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="{{siteSettings?.instagram}}" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="{{siteSettings?.linkedin}}" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-area">
+        <div class="container">
+
+            <p>© Powered By <a href="https://vakifglobal.com/" target="_blank">
+                <img src="https://vakifglobal.com/assets/images/logo.png" width="200px"/>
+            </a></p>
+        </div>
+    </div>
+</footer>
+
+<ngx-scrolltop></ngx-scrolltop>
