@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="faq-video">
+                <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
+                    <a
+                        data-lg-size="1280-720"
+                        data-src="https://www.youtube.com/watch?v=68mTG-fxzX4"
+                        data-sub-html="<p>Ednuv Video</p>"
+                    >
+                        <img src="assets/img/business-coaching/faq.jpg" alt="image">
+                        <div class="video-btn">
+                            <i class='bx bx-play'></i>
+                        </div>
+                    </a>
+                </lightgallery>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="faq-accordion faq-accordion-style-two">
+                <div class="accordion-item" *ngFor="let item of accordionItems; let i = index;">
+                    <div class="accordion-header" (click)="toggleAccordionItem(item)">
+                        {{ item.title }}
+                        <i class='bx' [ngClass]="{'bx-chevron-down': !item.open, 'bx-chevron-up': item.open}"></i>
+                    </div>
+                    <div class="accordion-content" [hidden]="!item.open">
+                        {{ item.content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,9 +3,9 @@
     --fontFamily1: 'Poppins', sans-serif;
     --fontFamily2: 'Open Sans', sans-serif;
     --fontFamily3: 'Playfair Display', serif;
-    --mainColor: #007DA4;
-    --mainColor2: #53565A;
-    --optionalColor: #E4CDB9;
+    --mainColor: #ff1949;
+    --mainColor2: #005d40;
+    --optionalColor: #0eb582;
     --whiteColor: #ffffff;
     --blackColor: #252525;
     --paragraphColor: #727695;
@@ -23,8 +23,8 @@ body {
 }
 a {
     text-decoration: none;
-    color: var(--blackColor);
     transition: var(--transition);
+    color: var(--blackColor);
 
     &:hover, &:focus {
         color: var(--mainColor);
@@ -35,8 +35,8 @@ input, button, a {
     outline: 0 !important;
 }
 p {
-    line-height: 1.8;
     margin-bottom: 15px;
+    line-height: 1.8;
     color: var(--paragraphColor);
     font: {
         family: var(--fontFamily2);
@@ -175,24 +175,24 @@ img {
     }
 }
 
-// Lightgallery
+// lightgallery
 @import '/node_modules/lightgallery/scss/lightgallery';
 @import '/node_modules/lightgallery/scss/lg-video';
 @import '/node_modules/lightgallery/scss/lg-zoom';
 
-// Default Btn
+/*default-btn*/
 .default-btn {
-    position: relative;
-    display: inline-block;
-    color: var(--whiteColor);
-    padding: 13px 25px 12px 55px;
     transition: var(--transition);
+    display: inline-block;
+    padding: 13px 25px 12px 55px;
+    position: relative;
     background-color: var(--mainColor);
+    color: var(--whiteColor);
     border: {
         width: 2px;
-        radius: 1px;
         style: solid;
         color: var(--mainColor);
+        radius: 1px;
     };
     font: {
         size: 14.5px;
@@ -221,16 +221,16 @@ img {
         }
         &.after {
             opacity: 0;
-            right: 20px;
             position: absolute;
+            right: 20px;
             transform: translateX(75%) scaleX(0.1);
             transform-origin: right center;
         }
     }
     &:hover, &:focus {
         background-color: var(--optionalColor);
-        border-color: var(--optionalColor);
         color: var(--whiteColor);
+        border-color: var(--optionalColor);
 
         .label {
             transform: translateX(-32px);
@@ -248,7 +248,7 @@ img {
     }
 }
 
-// Section Title
+/*section-title*/
 .section-title {
     text-align: center;
     position: relative;
@@ -258,10 +258,10 @@ img {
     };
     .sub-title {
         text-transform: uppercase;
-        color: var(--mainColor);
-        margin-bottom: 10px;
-        font-weight: 500;
         display: block;
+        color: var(--mainColor);
+        font-weight: 500;
+        margin-bottom: 10px;
     }
     h2 {
         margin-bottom: 12px;
@@ -279,11 +279,11 @@ img {
         };
     }
     .default-btn {
+        position: absolute;
         right: 0;
         top: 50%;
-        z-index: 1;
-        position: absolute;
         transform: translateY(-50%);
+        z-index: 1;
     }
     &.text-start {
         h2 {
@@ -293,15 +293,15 @@ img {
         p {
             margin: {
                 bottom: 0;
+                left: 0;
                 top: 15px;
                 right: 0;
-                left: 0;
             };
         }
     }
 }
 
-// Form Control
+/*form-control*/
 .form-control {
     height: 48px;
     padding: 0 0 0 12px;
@@ -328,7 +328,7 @@ textarea.form-control {
     padding-top: 12px;
 }
 
-// Owl Carousel CSS
+/*owl-carousel-css*/
 .mission-content {
     .owl-theme {
         .owl-nav {
@@ -342,7 +342,7 @@ textarea.form-control {
                 background: var(--whiteColor);
                 width: 50px;
                 height: 50px;
-                line-height: 57px;
+                line-height: 56px;
                 position: absolute;
                 left: -84px;
                 transition: var(--transition);
@@ -934,7 +934,7 @@ textarea.form-control {
     }
 }
 
-// Keyframes CSS
+/*keyframes-css*/
 @keyframes loader {
     0% {
         left: -100px
@@ -1044,7 +1044,7 @@ textarea.form-control {
     } 
 }
 
-// Extra CSS
+/*extra-css*/
 .courses-categories-area {
     position: relative;
     z-index: 1;
@@ -2130,7 +2130,7 @@ textarea.form-control {
     }
 }
 
-// Page Title CSS
+/*Page Title CSS*/
 .page-title-area {
     position: relative;
     z-index: 1;
@@ -2141,13 +2141,13 @@ textarea.form-control {
         repeat: no-repeat;
     };
     padding: {
-        top: 30px;
-        bottom: 20px;
+        top: 330px;
+        bottom: 120px;
     };
     &.page-title-style-two {
         padding: {
-            top: 80px;
-            bottom: 20px;
+            top: 280px;
+            bottom: 120px;
         };
     }
     &.page-title-style-three {
@@ -2158,22 +2158,22 @@ textarea.form-control {
     }
     &.item-bg1 {
         background: {
-            image: url(assets/img/beradcrumb-bg.jpeg);
+            image: url(assets/img/page-title/page-title1.jpg);
         };
     }
     &.item-bg2 {
         background: {
-            image: url(assets/img/beradcrumb-bg.jpeg);
+            image: url(assets/img/page-title/page-title2.jpg);
         };
     }
     &.item-bg3 {
         background: {
-            image: url(assets/img/beradcrumb-bg.jpeg);
+            image: url(assets/img/page-title/page-title3.jpg);
         };
     }
     &.item-bg4 {
         background: {
-            image: url(assets/img/beradcrumb-bg.jpeg);
+            image: url(assets/img/page-title/page-title4.jpg);
         };
     }
 }
@@ -2231,17 +2231,9 @@ textarea.form-control {
             weight: 700;
         };
     }
-    h4{
-        color: var(--whiteColor);
-        margin-top: 10px;
-        font: {
-            size: 24px;
-            weight: 500;
-        };
-    }
 }
 
-// Widget Sidebar CSS
+/*Widget Sidebar CSS*/
 .widget-area {
     .widget {
         margin-bottom: 40px;
@@ -2672,7 +2664,7 @@ textarea.form-control {
     }
 }
 
-// Pagination CSS
+/*Pagination CSS*/
 .pagination-area {
     position: relative;
     z-index: 2;
@@ -2706,7 +2698,7 @@ textarea.form-control {
     }
 }
 
-// Post Navigation
+/*post-navigation*/
 .ednuv-post-navigation {
     display: flex;
     flex-wrap: wrap;
@@ -2916,7 +2908,7 @@ textarea.form-control {
     }
 }
 
-// Quote
+/*quote*/
 blockquote, .blockquote {
     overflow: hidden;
     background-color: #fafafa;
@@ -2942,17 +2934,17 @@ blockquote, .blockquote {
         display: none;
     }
     &::before {
+        color: #efefef;
+        position: absolute;
         left: 50px;
         top: -50px;
         z-index: -1;
-        content: "\ee84";
-        color: #efefef;
-        position: absolute;
+        content: "\ed67";
         font: {
             family: "boxicons" !important;
-            variant: normal;
             weight: normal;
             style: normal;
+            variant: normal;
             size: 135px;
         };
     }
@@ -2971,7 +2963,7 @@ blockquote, .blockquote {
     }
 }
 
-// Shape CSS
+/*shape-css*/
 .business-shape1 {
     position: absolute;
     right: 5%;
@@ -3326,9 +3318,6 @@ blockquote, .blockquote {
             }
         }
         .overview-connections-card {
-            h3 {
-                color: var(--blackColor) !important;
-            }
             p {
                 color: var(--paragraphColor) !important;
             }
@@ -3336,7 +3325,7 @@ blockquote, .blockquote {
     }
 }
 
-// FAQ CSS
+/*faq-css*/
 .faq-area {
     position: relative;
     z-index: 1;
@@ -3385,56 +3374,6 @@ blockquote, .blockquote {
     }
 }
 
-// Back to Top
-.scrolltop-button {
-    right: 30px !important;
-    z-index: 99 !important;
-    width: 45px !important;
-    height: 45px !important;
-    bottom: 30px !important;
-    display: block !important;
-    transition: var(--transition) !important;
-    background-color: var(--whiteColor) !important;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
-
-    .symbol-container {
-        color: var(--blackColor) !important;
-        transition: var(--transition);
-        position: relative;
-
-        &::before {
-            left: 0;
-            right: 0;
-            top: 50%;
-            line-height: 1;
-            content: "\ea57";
-            position: absolute;
-            color: var(--blackColor);
-            transform: translateY(-50%);
-            transition: var(--transition);
-            font: {
-                size: 30px;
-                family: boxicons;
-            };
-        }
-    }
-    svg {
-        display: none !important;
-    }
-    &:hover {
-        background-color: var(--mainColor) !important;
-
-        .symbol-container {
-            color: var(--whiteColor) !important;
-
-            &::before {
-                color: var(--whiteColor);
-            }
-        }
-    }
-}
-
-/* Max width 767px */
 @media only screen and (max-width: 767px) {
 
     body {
@@ -4053,15 +3992,8 @@ blockquote, .blockquote {
         }
     }
 
-    // Back to Top
-    .scrolltop-button {
-        right: 15px !important;
-        bottom: 15px !important;
-    }
-
 }
 
-/* Min width 576px to Max width 767px */
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
     .page-title-area {
@@ -4088,7 +4020,6 @@ blockquote, .blockquote {
 
 }
 
-/* Min width 768px to Max width 991px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
     .ptb-100 {
@@ -4435,15 +4366,8 @@ blockquote, .blockquote {
         }
     }
 
-    // Back to Top
-    .scrolltop-button {
-        right: 20px !important;
-        bottom: 20px !important;
-    }
-
 }
 
-/* Min width 992px to Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     
     .courses-categories-slides {
@@ -4608,7 +4532,6 @@ blockquote, .blockquote {
 
 }
 
-/* Min width 1200px to Max width 1275px */
 @media only screen and (min-width: 1200px) and (max-width: 1275px) {
 
     .courses-categories-slides {
@@ -4733,7 +4656,6 @@ blockquote, .blockquote {
 
 }
 
-/* Min width 1200px to Max width 1399px */
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
 
     .testimonials-wrap-area {
@@ -4745,7 +4667,6 @@ blockquote, .blockquote {
 
 }
 
-/* Min width 1550px */
 @media only screen and (min-width: 1550px) {
 
     .business-shape1 {
@@ -4830,6 +4751,3 @@ blockquote, .blockquote {
     }
 
 }
-
-// Dark CSS
-@import "./dark.scss";
